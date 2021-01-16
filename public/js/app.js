@@ -1908,6 +1908,7 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue_kinesis__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-kinesis */ "./node_modules/vue-kinesis/dist/vue-kinesis.esm.js");
 //
 //
 //
@@ -1921,7 +1922,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    KinesisContainer: vue_kinesis__WEBPACK_IMPORTED_MODULE_0__["KinesisContainer"],
+    KinesisElement: vue_kinesis__WEBPACK_IMPORTED_MODULE_0__["KinesisElement"]
+  },
   data: function data() {
     return {
       message: ''
@@ -6369,6 +6386,112 @@ __webpack_require__.r(__webpack_exports__);
 
 })));
 //# sourceMappingURL=bootstrap.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ExampleComponent.vue?vue&type=style&index=0&lang=scss&":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=style&index=0&lang=scss& ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".paralax-image {\n  width: 100px;\n  height: 100px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  position: absolute;\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/lib/css-base.js":
+/*!*************************************************!*\
+  !*** ./node_modules/css-loader/lib/css-base.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/*
+	MIT License http://www.opensource.org/licenses/mit-license.php
+	Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+module.exports = function(useSourceMap) {
+	var list = [];
+
+	// return the list of modules as css string
+	list.toString = function toString() {
+		return this.map(function (item) {
+			var content = cssWithMappingToString(item, useSourceMap);
+			if(item[2]) {
+				return "@media " + item[2] + "{" + content + "}";
+			} else {
+				return content;
+			}
+		}).join("");
+	};
+
+	// import a list of modules into the list
+	list.i = function(modules, mediaQuery) {
+		if(typeof modules === "string")
+			modules = [[null, modules, ""]];
+		var alreadyImportedModules = {};
+		for(var i = 0; i < this.length; i++) {
+			var id = this[i][0];
+			if(typeof id === "number")
+				alreadyImportedModules[id] = true;
+		}
+		for(i = 0; i < modules.length; i++) {
+			var item = modules[i];
+			// skip already imported module
+			// this implementation is not 100% perfect for weird media query combinations
+			//  when a module is imported multiple times with different media queries.
+			//  I hope this will never occur (Hey this way we have smaller bundles)
+			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+				if(mediaQuery && !item[2]) {
+					item[2] = mediaQuery;
+				} else if(mediaQuery) {
+					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+				}
+				list.push(item);
+			}
+		}
+	};
+	return list;
+};
+
+function cssWithMappingToString(item, useSourceMap) {
+	var content = item[1] || '';
+	var cssMapping = item[3];
+	if (!cssMapping) {
+		return content;
+	}
+
+	if (useSourceMap && typeof btoa === 'function') {
+		var sourceMapping = toComment(cssMapping);
+		var sourceURLs = cssMapping.sources.map(function (source) {
+			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
+		});
+
+		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
+	}
+
+	return [content].join('\n');
+}
+
+// Adapted from convert-source-map (MIT)
+function toComment(sourceMap) {
+	// eslint-disable-next-line no-undef
+	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
+	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
+
+	return '/*# ' + data + ' */';
+}
 
 
 /***/ }),
@@ -37445,6 +37568,545 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ExampleComponent.vue?vue&type=style&index=0&lang=scss&":
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=style&index=0&lang=scss& ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../node_modules/css-loader!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--7-2!../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../node_modules/vue-loader/lib??vue-loader-options!./ExampleComponent.vue?vue&type=style&index=0&lang=scss& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ExampleComponent.vue?vue&type=style&index=0&lang=scss&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/lib/addStyles.js":
+/*!****************************************************!*\
+  !*** ./node_modules/style-loader/lib/addStyles.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/*
+	MIT License http://www.opensource.org/licenses/mit-license.php
+	Author Tobias Koppers @sokra
+*/
+
+var stylesInDom = {};
+
+var	memoize = function (fn) {
+	var memo;
+
+	return function () {
+		if (typeof memo === "undefined") memo = fn.apply(this, arguments);
+		return memo;
+	};
+};
+
+var isOldIE = memoize(function () {
+	// Test for IE <= 9 as proposed by Browserhacks
+	// @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
+	// Tests for existence of standard globals is to allow style-loader
+	// to operate correctly into non-standard environments
+	// @see https://github.com/webpack-contrib/style-loader/issues/177
+	return window && document && document.all && !window.atob;
+});
+
+var getTarget = function (target, parent) {
+  if (parent){
+    return parent.querySelector(target);
+  }
+  return document.querySelector(target);
+};
+
+var getElement = (function (fn) {
+	var memo = {};
+
+	return function(target, parent) {
+                // If passing function in options, then use it for resolve "head" element.
+                // Useful for Shadow Root style i.e
+                // {
+                //   insertInto: function () { return document.querySelector("#foo").shadowRoot }
+                // }
+                if (typeof target === 'function') {
+                        return target();
+                }
+                if (typeof memo[target] === "undefined") {
+			var styleTarget = getTarget.call(this, target, parent);
+			// Special case to return head of iframe instead of iframe itself
+			if (window.HTMLIFrameElement && styleTarget instanceof window.HTMLIFrameElement) {
+				try {
+					// This will throw an exception if access to iframe is blocked
+					// due to cross-origin restrictions
+					styleTarget = styleTarget.contentDocument.head;
+				} catch(e) {
+					styleTarget = null;
+				}
+			}
+			memo[target] = styleTarget;
+		}
+		return memo[target]
+	};
+})();
+
+var singleton = null;
+var	singletonCounter = 0;
+var	stylesInsertedAtTop = [];
+
+var	fixUrls = __webpack_require__(/*! ./urls */ "./node_modules/style-loader/lib/urls.js");
+
+module.exports = function(list, options) {
+	if (typeof DEBUG !== "undefined" && DEBUG) {
+		if (typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
+	}
+
+	options = options || {};
+
+	options.attrs = typeof options.attrs === "object" ? options.attrs : {};
+
+	// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+	// tags it will allow on a page
+	if (!options.singleton && typeof options.singleton !== "boolean") options.singleton = isOldIE();
+
+	// By default, add <style> tags to the <head> element
+        if (!options.insertInto) options.insertInto = "head";
+
+	// By default, add <style> tags to the bottom of the target
+	if (!options.insertAt) options.insertAt = "bottom";
+
+	var styles = listToStyles(list, options);
+
+	addStylesToDom(styles, options);
+
+	return function update (newList) {
+		var mayRemove = [];
+
+		for (var i = 0; i < styles.length; i++) {
+			var item = styles[i];
+			var domStyle = stylesInDom[item.id];
+
+			domStyle.refs--;
+			mayRemove.push(domStyle);
+		}
+
+		if(newList) {
+			var newStyles = listToStyles(newList, options);
+			addStylesToDom(newStyles, options);
+		}
+
+		for (var i = 0; i < mayRemove.length; i++) {
+			var domStyle = mayRemove[i];
+
+			if(domStyle.refs === 0) {
+				for (var j = 0; j < domStyle.parts.length; j++) domStyle.parts[j]();
+
+				delete stylesInDom[domStyle.id];
+			}
+		}
+	};
+};
+
+function addStylesToDom (styles, options) {
+	for (var i = 0; i < styles.length; i++) {
+		var item = styles[i];
+		var domStyle = stylesInDom[item.id];
+
+		if(domStyle) {
+			domStyle.refs++;
+
+			for(var j = 0; j < domStyle.parts.length; j++) {
+				domStyle.parts[j](item.parts[j]);
+			}
+
+			for(; j < item.parts.length; j++) {
+				domStyle.parts.push(addStyle(item.parts[j], options));
+			}
+		} else {
+			var parts = [];
+
+			for(var j = 0; j < item.parts.length; j++) {
+				parts.push(addStyle(item.parts[j], options));
+			}
+
+			stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
+		}
+	}
+}
+
+function listToStyles (list, options) {
+	var styles = [];
+	var newStyles = {};
+
+	for (var i = 0; i < list.length; i++) {
+		var item = list[i];
+		var id = options.base ? item[0] + options.base : item[0];
+		var css = item[1];
+		var media = item[2];
+		var sourceMap = item[3];
+		var part = {css: css, media: media, sourceMap: sourceMap};
+
+		if(!newStyles[id]) styles.push(newStyles[id] = {id: id, parts: [part]});
+		else newStyles[id].parts.push(part);
+	}
+
+	return styles;
+}
+
+function insertStyleElement (options, style) {
+	var target = getElement(options.insertInto)
+
+	if (!target) {
+		throw new Error("Couldn't find a style target. This probably means that the value for the 'insertInto' parameter is invalid.");
+	}
+
+	var lastStyleElementInsertedAtTop = stylesInsertedAtTop[stylesInsertedAtTop.length - 1];
+
+	if (options.insertAt === "top") {
+		if (!lastStyleElementInsertedAtTop) {
+			target.insertBefore(style, target.firstChild);
+		} else if (lastStyleElementInsertedAtTop.nextSibling) {
+			target.insertBefore(style, lastStyleElementInsertedAtTop.nextSibling);
+		} else {
+			target.appendChild(style);
+		}
+		stylesInsertedAtTop.push(style);
+	} else if (options.insertAt === "bottom") {
+		target.appendChild(style);
+	} else if (typeof options.insertAt === "object" && options.insertAt.before) {
+		var nextSibling = getElement(options.insertAt.before, target);
+		target.insertBefore(style, nextSibling);
+	} else {
+		throw new Error("[Style Loader]\n\n Invalid value for parameter 'insertAt' ('options.insertAt') found.\n Must be 'top', 'bottom', or Object.\n (https://github.com/webpack-contrib/style-loader#insertat)\n");
+	}
+}
+
+function removeStyleElement (style) {
+	if (style.parentNode === null) return false;
+	style.parentNode.removeChild(style);
+
+	var idx = stylesInsertedAtTop.indexOf(style);
+	if(idx >= 0) {
+		stylesInsertedAtTop.splice(idx, 1);
+	}
+}
+
+function createStyleElement (options) {
+	var style = document.createElement("style");
+
+	if(options.attrs.type === undefined) {
+		options.attrs.type = "text/css";
+	}
+
+	if(options.attrs.nonce === undefined) {
+		var nonce = getNonce();
+		if (nonce) {
+			options.attrs.nonce = nonce;
+		}
+	}
+
+	addAttrs(style, options.attrs);
+	insertStyleElement(options, style);
+
+	return style;
+}
+
+function createLinkElement (options) {
+	var link = document.createElement("link");
+
+	if(options.attrs.type === undefined) {
+		options.attrs.type = "text/css";
+	}
+	options.attrs.rel = "stylesheet";
+
+	addAttrs(link, options.attrs);
+	insertStyleElement(options, link);
+
+	return link;
+}
+
+function addAttrs (el, attrs) {
+	Object.keys(attrs).forEach(function (key) {
+		el.setAttribute(key, attrs[key]);
+	});
+}
+
+function getNonce() {
+	if (false) {}
+
+	return __webpack_require__.nc;
+}
+
+function addStyle (obj, options) {
+	var style, update, remove, result;
+
+	// If a transform function was defined, run it on the css
+	if (options.transform && obj.css) {
+	    result = typeof options.transform === 'function'
+		 ? options.transform(obj.css) 
+		 : options.transform.default(obj.css);
+
+	    if (result) {
+	    	// If transform returns a value, use that instead of the original css.
+	    	// This allows running runtime transformations on the css.
+	    	obj.css = result;
+	    } else {
+	    	// If the transform function returns a falsy value, don't add this css.
+	    	// This allows conditional loading of css
+	    	return function() {
+	    		// noop
+	    	};
+	    }
+	}
+
+	if (options.singleton) {
+		var styleIndex = singletonCounter++;
+
+		style = singleton || (singleton = createStyleElement(options));
+
+		update = applyToSingletonTag.bind(null, style, styleIndex, false);
+		remove = applyToSingletonTag.bind(null, style, styleIndex, true);
+
+	} else if (
+		obj.sourceMap &&
+		typeof URL === "function" &&
+		typeof URL.createObjectURL === "function" &&
+		typeof URL.revokeObjectURL === "function" &&
+		typeof Blob === "function" &&
+		typeof btoa === "function"
+	) {
+		style = createLinkElement(options);
+		update = updateLink.bind(null, style, options);
+		remove = function () {
+			removeStyleElement(style);
+
+			if(style.href) URL.revokeObjectURL(style.href);
+		};
+	} else {
+		style = createStyleElement(options);
+		update = applyToTag.bind(null, style);
+		remove = function () {
+			removeStyleElement(style);
+		};
+	}
+
+	update(obj);
+
+	return function updateStyle (newObj) {
+		if (newObj) {
+			if (
+				newObj.css === obj.css &&
+				newObj.media === obj.media &&
+				newObj.sourceMap === obj.sourceMap
+			) {
+				return;
+			}
+
+			update(obj = newObj);
+		} else {
+			remove();
+		}
+	};
+}
+
+var replaceText = (function () {
+	var textStore = [];
+
+	return function (index, replacement) {
+		textStore[index] = replacement;
+
+		return textStore.filter(Boolean).join('\n');
+	};
+})();
+
+function applyToSingletonTag (style, index, remove, obj) {
+	var css = remove ? "" : obj.css;
+
+	if (style.styleSheet) {
+		style.styleSheet.cssText = replaceText(index, css);
+	} else {
+		var cssNode = document.createTextNode(css);
+		var childNodes = style.childNodes;
+
+		if (childNodes[index]) style.removeChild(childNodes[index]);
+
+		if (childNodes.length) {
+			style.insertBefore(cssNode, childNodes[index]);
+		} else {
+			style.appendChild(cssNode);
+		}
+	}
+}
+
+function applyToTag (style, obj) {
+	var css = obj.css;
+	var media = obj.media;
+
+	if(media) {
+		style.setAttribute("media", media)
+	}
+
+	if(style.styleSheet) {
+		style.styleSheet.cssText = css;
+	} else {
+		while(style.firstChild) {
+			style.removeChild(style.firstChild);
+		}
+
+		style.appendChild(document.createTextNode(css));
+	}
+}
+
+function updateLink (link, options, obj) {
+	var css = obj.css;
+	var sourceMap = obj.sourceMap;
+
+	/*
+		If convertToAbsoluteUrls isn't defined, but sourcemaps are enabled
+		and there is no publicPath defined then lets turn convertToAbsoluteUrls
+		on by default.  Otherwise default to the convertToAbsoluteUrls option
+		directly
+	*/
+	var autoFixUrls = options.convertToAbsoluteUrls === undefined && sourceMap;
+
+	if (options.convertToAbsoluteUrls || autoFixUrls) {
+		css = fixUrls(css);
+	}
+
+	if (sourceMap) {
+		// http://stackoverflow.com/a/26603875
+		css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
+	}
+
+	var blob = new Blob([css], { type: "text/css" });
+
+	var oldSrc = link.href;
+
+	link.href = URL.createObjectURL(blob);
+
+	if(oldSrc) URL.revokeObjectURL(oldSrc);
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/lib/urls.js":
+/*!***********************************************!*\
+  !*** ./node_modules/style-loader/lib/urls.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+/**
+ * When source maps are enabled, `style-loader` uses a link element with a data-uri to
+ * embed the css on the page. This breaks all relative urls because now they are relative to a
+ * bundle instead of the current page.
+ *
+ * One solution is to only use full urls, but that may be impossible.
+ *
+ * Instead, this function "fixes" the relative urls to be absolute according to the current page location.
+ *
+ * A rudimentary test suite is located at `test/fixUrls.js` and can be run via the `npm test` command.
+ *
+ */
+
+module.exports = function (css) {
+  // get current location
+  var location = typeof window !== "undefined" && window.location;
+
+  if (!location) {
+    throw new Error("fixUrls requires window.location");
+  }
+
+	// blank or null?
+	if (!css || typeof css !== "string") {
+	  return css;
+  }
+
+  var baseUrl = location.protocol + "//" + location.host;
+  var currentDir = baseUrl + location.pathname.replace(/\/[^\/]*$/, "/");
+
+	// convert each url(...)
+	/*
+	This regular expression is just a way to recursively match brackets within
+	a string.
+
+	 /url\s*\(  = Match on the word "url" with any whitespace after it and then a parens
+	   (  = Start a capturing group
+	     (?:  = Start a non-capturing group
+	         [^)(]  = Match anything that isn't a parentheses
+	         |  = OR
+	         \(  = Match a start parentheses
+	             (?:  = Start another non-capturing groups
+	                 [^)(]+  = Match anything that isn't a parentheses
+	                 |  = OR
+	                 \(  = Match a start parentheses
+	                     [^)(]*  = Match anything that isn't a parentheses
+	                 \)  = Match a end parentheses
+	             )  = End Group
+              *\) = Match anything and then a close parens
+          )  = Close non-capturing group
+          *  = Match anything
+       )  = Close capturing group
+	 \)  = Match a close parens
+
+	 /gi  = Get all matches, not the first.  Be case insensitive.
+	 */
+	var fixedCss = css.replace(/url\s*\(((?:[^)(]|\((?:[^)(]+|\([^)(]*\))*\))*)\)/gi, function(fullMatch, origUrl) {
+		// strip quotes (if they exist)
+		var unquotedOrigUrl = origUrl
+			.trim()
+			.replace(/^"(.*)"$/, function(o, $1){ return $1; })
+			.replace(/^'(.*)'$/, function(o, $1){ return $1; });
+
+		// already a full url? no change
+		if (/^(#|data:|http:\/\/|https:\/\/|file:\/\/\/|\s*$)/i.test(unquotedOrigUrl)) {
+		  return fullMatch;
+		}
+
+		// convert the url to a full url
+		var newUrl;
+
+		if (unquotedOrigUrl.indexOf("//") === 0) {
+		  	//TODO: should we add protocol?
+			newUrl = unquotedOrigUrl;
+		} else if (unquotedOrigUrl.indexOf("/") === 0) {
+			// path should be relative to the base url
+			newUrl = baseUrl + unquotedOrigUrl; // already starts with '/'
+		} else {
+			// path should be relative to current directory
+			newUrl = currentDir + unquotedOrigUrl.replace(/^\.\//, ""); // Strip leading './'
+		}
+
+		// send back the fixed url(...)
+		return "url(" + JSON.stringify(newUrl) + ")";
+	});
+
+	// send back the fixed css
+	return fixedCss;
+};
+
+
+/***/ }),
+
 /***/ "./node_modules/timers-browserify/main.js":
 /*!************************************************!*\
   !*** ./node_modules/timers-browserify/main.js ***!
@@ -37520,6 +38182,1390 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
+/***/ "./node_modules/vue-kinesis/dist/vue-kinesis.esm.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/vue-kinesis/dist/vue-kinesis.esm.js ***!
+  \**********************************************************/
+/*! exports provided: default, KinesisAudio, KinesisContainer, KinesisDistance, KinesisElement, KinesisScroll */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* WEBPACK VAR INJECTION */(function(global) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "KinesisAudio", function() { return __vue_component__$2; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "KinesisContainer", function() { return __vue_component__; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "KinesisDistance", function() { return __vue_component__$4; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "KinesisElement", function() { return __vue_component__$1; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "KinesisScroll", function() { return __vue_component__$3; });
+function inViewport(element) {
+  const isInViewport = element.bottom >= 0 && element.right >= 0 && element.top <= (window.innerHeight || document.documentElement.clientHeight) && element.left <= (window.innerWidth || document.documentElement.clientWidth);
+  return isInViewport;
+}
+
+function throttle(callback, delay, type) {
+  let last;
+  let timer; // eslint-disable-next-line func-names
+
+  return function () {
+    const context = this;
+    let newDelay;
+
+    if (type === 'scroll') {
+      newDelay = delay;
+    } else {
+      newDelay = context.duration > 1000 ? delay : context.duration / 10;
+    }
+
+    const now = +new Date(); // eslint-disable-next-line prefer-rest-params
+
+    const args = arguments;
+
+    if (last && now < last + newDelay) {
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        requestAnimationFrame(() => {
+          last = now;
+          callback.apply(context, args);
+        });
+      }, newDelay);
+    } else {
+      requestAnimationFrame(() => {
+        last = now;
+        callback.apply(context, args);
+      });
+    }
+  };
+}
+
+var baseMixin = {
+  props: {
+    active: {
+      type: Boolean,
+      default: true
+    },
+    duration: {
+      type: Number,
+      default: 1000
+    },
+    easing: {
+      type: String,
+      default: 'cubic-bezier(0.23, 1, 0.32, 1)'
+    },
+    tag: {
+      type: String,
+      default: 'div'
+    }
+  }
+};
+
+var perspectiveMixin = {
+  props: {
+    perspective: {
+      type: Number,
+      default: 1000
+    }
+  },
+  computed: {
+    style() {
+      return {
+        perspective: `${this.perspective}px`
+      };
+    }
+
+  }
+};
+
+var audioMixin = {
+  props: {
+    audio: {
+      type: String,
+      required: false
+    },
+    playAudio: {
+      type: Boolean,
+      default: false
+    }
+  },
+
+  data() {
+    return {
+      analyser: null,
+      audioArray: null,
+      audioData: null,
+      audioRef: null,
+      wasPlayed: false,
+      isPlaying: false
+    };
+  },
+
+  watch: {
+    audio() {
+      this.wasPlayed = false;
+      this.isPlaying = false;
+    },
+
+    playAudio(play) {
+      if (play) {
+        this.play();
+      } else {
+        this.stop();
+      }
+    }
+
+  },
+  methods: {
+    play() {
+      if (!this.active) return;
+
+      if (!this.wasPlayed) {
+        this.handleAudio();
+        this.wasPlayed = true;
+      }
+
+      this.isPlaying = true;
+      this.audioRef.play();
+      this.getSongData();
+    },
+
+    stop() {
+      this.isPlaying = false;
+      this.audioRef.pause();
+    },
+
+    handleAudio() {
+      const {
+        audio
+      } = this.$refs;
+      this.audioRef = audio;
+      const context = new AudioContext();
+      const src = context.createMediaElementSource(audio);
+      const analyser = context.createAnalyser();
+      src.connect(analyser);
+      analyser.connect(context.destination);
+      analyser.fftSize = 256;
+      const bufferLength = analyser.frequencyBinCount;
+      const audioArray = new Uint8Array(bufferLength);
+      this.audioArray = audioArray;
+      this.analyser = analyser;
+    },
+
+    getSongData() {
+      if (this.isPlaying) {
+        this.analyser.getByteFrequencyData(this.audioArray);
+        this.audioData = new Array(this.audioArray); // @Todo reactivity issue
+
+        requestAnimationFrame(this.getSongData);
+      }
+    }
+
+  }
+};
+
+function isTouch() {
+  try {
+    return /Mobi|Android/i.test(navigator.userAgent);
+  } catch (e) {
+    return true;
+  }
+}
+
+var containerEvents = {
+  props: {
+    event: {
+      type: String,
+      default: 'move' // move, scroll
+
+    }
+  },
+
+  data() {
+    return {
+      eventMap: {
+        orientation: 'deviceorientation',
+        scroll: 'scroll',
+        move: isTouch() ? 'deviceorientation' : null
+      }
+    };
+  },
+
+  methods: {
+    addEvents() {
+      if (this.eventMap[this.event]) {
+        window.addEventListener(this.eventMap[this.event], this.handleMovement, true);
+      }
+    },
+
+    removeEvents() {
+      if (this.eventMap[this.event]) {
+        window.removeEventListener(this.eventMap[this.event], this.handleMovement, true);
+      }
+    }
+
+  },
+  watch: {
+    event(newVal, oldVal) {
+      if (this.eventMap[newVal]) {
+        window.addEventListener(this.eventMap[newVal], this.handleMovement, true);
+      }
+
+      if (this.eventMap[oldVal]) {
+        window.addEventListener(this.eventMap[oldVal], this.handleMovement, true);
+      }
+    }
+
+  }
+};
+
+function getCoordinates (x, y) {
+  return {
+    x,
+    y
+  };
+}
+
+function getCenter (element) {
+  return getCoordinates(element ? element.width / 2 : 0, element ? element.height / 2 : 0);
+}
+
+function mouseMovement (action) {
+  const {
+    target,
+    event
+  } = action;
+  const x = event.clientX;
+  const y = event.clientY;
+  const relativeX = x - target.left;
+  const relativeY = y - target.top;
+  const center = getCenter(target);
+  const mouseMovementX = relativeX / center.x;
+  const mouseMovementY = relativeY / center.y;
+  return { ...getCoordinates(mouseMovementX, mouseMovementY),
+    target
+  };
+}
+
+function orientationElement (action) {
+  const {
+    event,
+    target
+  } = action;
+  const x = event.gamma / 45;
+  const y = event.beta / 90;
+  return { ...getCoordinates(x, y),
+    target
+  };
+}
+
+function scrollMovement (target) {
+  const x = (target.left - window.innerWidth) / (target.width + window.innerWidth);
+  const y = (target.top - window.innerHeight) / (target.height + window.innerHeight);
+  return { ...getCoordinates(x, y),
+    target
+  };
+}
+
+//
+var script = {
+  name: 'KinesisContainer',
+  mixins: [baseMixin, perspectiveMixin, audioMixin, containerEvents],
+
+  provide() {
+    const context = {};
+    const providedProps = ['audioData', 'duration', 'easing', 'event', 'eventData', 'isMoving', 'movement', 'shape'];
+    providedProps.forEach(prop => Object.defineProperty(context, prop, {
+      enumerable: true,
+      get: () => this[prop]
+    }));
+    return {
+      context
+    };
+  },
+
+  data() {
+    return {
+      movement: {
+        x: 0,
+        y: 0
+      },
+      leftOnce: false,
+      isMoving: false,
+      shape: null,
+      eventData: {
+        x: 0,
+        y: 0
+      }
+    };
+  },
+
+  mounted() {
+    this.addEvents();
+  },
+
+  beforeDestroy() {
+    this.removeEvents();
+  },
+
+  methods: {
+    // eslint-disable-next-line func-names
+    handleMovement: throttle(function (event) {
+      // if (!this.active) return;
+      if (!this.isMoving && !this.leftOnce) {
+        // fixes the specific case when mouseenter didn't trigger on page refresh
+        this.isMoving = true;
+      }
+
+      this.shape = this.$el.getBoundingClientRect();
+      const isInViewport = inViewport(this.shape);
+
+      if (this.event === 'move' && this.isMoving && !isTouch()) {
+        this.movement = mouseMovement({
+          target: this.shape,
+          event
+        });
+        this.eventData = getCoordinates(event.clientX, event.clientY);
+      } else if ((this.event === 'orientation' || this.event === 'move' && isTouch()) && isInViewport) {
+        this.movement = orientationElement({
+          target: this.shape,
+          event
+        });
+      } else if (this.event === 'scroll' && isInViewport && !!this.shape.height) {
+        this.movement = scrollMovement(this.shape);
+      }
+    }, 100),
+
+    handleMovementStart() {
+      this.isMoving = true;
+    },
+
+    handleMovementStop() {
+      // fixes the specific case when mouseenter didn't trigger on page refresh
+      this.leftOnce = true;
+      this.isMoving = false;
+    }
+
+  }
+};
+
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+    if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
+    }
+    // Vue.extend constructor export interop.
+    const options = typeof script === 'function' ? script.options : script;
+    // render functions
+    if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true;
+        // functional template
+        if (isFunctionalTemplate) {
+            options.functional = true;
+        }
+    }
+    // scopedId
+    if (scopeId) {
+        options._scopeId = scopeId;
+    }
+    let hook;
+    if (moduleIdentifier) {
+        // server build
+        hook = function (context) {
+            // 2.3 injection
+            context =
+                context || // cached call
+                    (this.$vnode && this.$vnode.ssrContext) || // stateful
+                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+            // 2.2 with runInNewContext: true
+            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                context = __VUE_SSR_CONTEXT__;
+            }
+            // inject component styles
+            if (style) {
+                style.call(this, createInjectorSSR(context));
+            }
+            // register component module identifier for async chunk inference
+            if (context && context._registeredComponents) {
+                context._registeredComponents.add(moduleIdentifier);
+            }
+        };
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        options._ssrRegister = hook;
+    }
+    else if (style) {
+        hook = shadowMode
+            ? function (context) {
+                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+            }
+            : function (context) {
+                style.call(this, createInjector(context));
+            };
+    }
+    if (hook) {
+        if (options.functional) {
+            // register for functional component in vue file
+            const originalRender = options.render;
+            options.render = function renderWithStyleInjection(h, context) {
+                hook.call(context);
+                return originalRender(h, context);
+            };
+        }
+        else {
+            // inject component registration as beforeCreate hook
+            const existing = options.beforeCreate;
+            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+    }
+    return script;
+}
+
+/* script */
+const __vue_script__ = script;
+/* template */
+
+var __vue_render__ = function () {
+  var _vm = this;
+
+  var _h = _vm.$createElement;
+
+  var _c = _vm._self._c || _h;
+
+  return _c(_vm.tag, {
+    tag: "component",
+    style: _vm.style,
+    on: {
+      "mousemove": _vm.handleMovement,
+      "mouseenter": _vm.handleMovementStart,
+      "mouseleave": _vm.handleMovementStop
+    }
+  }, [_vm._t("default"), _vm._v(" "), _vm.audio ? _c('audio', {
+    ref: "audio",
+    attrs: {
+      "type": "audio/mpeg"
+    },
+    on: {
+      "ended": _vm.stop
+    }
+  }, [_c('source', {
+    attrs: {
+      "src": _vm.audio
+    }
+  })]) : _vm._e()], 2);
+};
+
+var __vue_staticRenderFns__ = [];
+/* style */
+
+const __vue_inject_styles__ = undefined;
+/* scoped */
+
+const __vue_scope_id__ = undefined;
+/* module identifier */
+
+const __vue_module_identifier__ = undefined;
+/* functional template */
+
+const __vue_is_functional_template__ = false;
+/* style inject */
+
+/* style inject SSR */
+
+/* style inject shadow dom */
+
+const __vue_component__ = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__,
+  staticRenderFns: __vue_staticRenderFns__
+}, __vue_inject_styles__, __vue_script__, __vue_scope_id__, __vue_is_functional_template__, __vue_module_identifier__, false, undefined, undefined, undefined);
+
+var motionMixin = {
+  props: {
+    type: {
+      type: String,
+      default: 'translate' // translate, rotate, scale, scaleX, scaleY, depth, depth_inv, custom
+
+    },
+    transformOrigin: {
+      type: String,
+      default: 'center'
+    },
+    originX: {
+      type: Number,
+      default: 50
+    },
+    originY: {
+      type: Number,
+      default: 50
+    },
+    strength: {
+      type: Number,
+      default: 10
+    },
+    audioIndex: {
+      type: Number,
+      default: 50
+    },
+    axis: {
+      type: String,
+      default: null
+    },
+    maxX: {
+      type: Number,
+      default: null
+    },
+    maxY: {
+      type: Number,
+      default: null
+    },
+    minX: {
+      type: Number,
+      default: null
+    },
+    minY: {
+      type: Number,
+      default: null
+    },
+    cycle: {
+      type: Number,
+      default: 0
+    }
+  },
+  methods: {
+    strengthManager() {
+      return this.type === 'depth' || this.type === 'depth_inv' ? Math.abs(this.strength) : this.strength;
+    }
+
+  }
+};
+
+/* eslint-disable default-case */
+var transformMixin = {
+  methods: {
+    transformSwitch(type, x, y, s) {
+      let transform;
+
+      switch (type) {
+        case 'translate':
+          transform = this.translateMovement(x, y);
+          break;
+
+        case 'rotate':
+          transform = this.rotateMovement(x, y);
+          break;
+
+        case 'depth':
+          transform = this.depthMovement(x, y, s);
+          break;
+
+        case 'depth_inv':
+          transform = this.depthMovement(-x, -y, s);
+          break;
+
+        case 'scale':
+          transform = this.scaleMovement(x, y);
+          break;
+      }
+
+      return transform;
+    },
+
+    translateMovement(x, y) {
+      return `translate3d(${-x}px, ${-y}px, 0)`;
+    },
+
+    rotateMovement(x, y) {
+      let movement;
+
+      if (!this.axis) {
+        movement = x + y;
+      } else if (this.axis === 'x') {
+        movement = 2 * x;
+      } else if (this.axis === 'y') {
+        movement = 2 * y;
+      }
+
+      return `rotate3d(0,0,1,${movement}deg)`;
+    },
+
+    depthMovement(x, y, s) {
+      return `rotateX(${-y}deg) rotateY(${x}deg) translate3d(0,0,${s * 2}px)`;
+    },
+
+    scaleMovement(x, y) {
+      const {
+        type
+      } = this;
+      const movement = Math.sign(this.strength) * (Math.abs(x) + Math.abs(y)) / 10 + 1;
+      return `scale3d(${type === 'scaleX' || type === 'scale' ? movement : 1},
+            ${type === 'scaleY' || type === 'scale' ? movement : 1},
+            1)`;
+    }
+
+  }
+};
+
+function elementMovement (action) {
+  const {
+    y,
+    x,
+    target,
+    originX = 50,
+    strength = 10,
+    event = null
+  } = action;
+  let {
+    originY = 50
+  } = action;
+
+  if (event === 'scroll') {
+    originY = -originY / 2;
+  }
+
+  const movementX = (x - originX / 50) * strength;
+  const movementY = (y - originY / 50) * strength;
+  return { ...getCoordinates(movementX, movementY),
+    target
+  };
+}
+
+/* eslint-disable no-nested-ternary */
+function clamp (value, min, max) {
+  return max && value > max ? max : min && value < min ? min : value;
+}
+
+function cyclicMovement (cycleData) {
+  const {
+    referencePosition,
+    elementPosition,
+    spanningRange,
+    cycles
+  } = cycleData;
+  const radialPosition = (referencePosition - elementPosition) * (Math.PI * 2) / spanningRange;
+  const cycle = spanningRange * Math.sin(radialPosition * cycles);
+  return cycle / (spanningRange / 2);
+}
+
+//
+var script$1 = {
+  name: 'KinesisElement',
+  mixins: [motionMixin, transformMixin],
+  inject: ['context'],
+  props: {
+    tag: {
+      type: String,
+      default: 'div'
+    }
+  },
+  computed: {
+    transform() {
+      return this.transformMovement();
+    },
+
+    getContext() {
+      return this.context;
+    },
+
+    transformParameters() {
+      return {
+        transitionProperty: 'transform',
+        transitionDuration: this.transitionDuration,
+        transformOrigin: this.transformOrigin,
+        transitionTimingFunction: this.transitionTimingFunction
+      };
+    },
+
+    transitionDuration() {
+      const {
+        duration
+      } = this.context;
+      return `${duration}ms`;
+    },
+
+    transitionTimingFunction() {
+      return this.context.easing;
+    },
+
+    isTouch() {
+      return isTouch();
+    }
+
+  },
+  methods: {
+    transformMovement() {
+      const {
+        context
+      } = this;
+      if (!context.isMoving && context.event === 'move') return {};
+      let movementX;
+      let movementY;
+      const eventTrigger = context.event;
+      const strength = this.strengthManager();
+
+      if (this.cycle <= 0) {
+        const {
+          x,
+          y
+        } = elementMovement({ ...context.movement,
+          originX: this.originX,
+          originY: this.originY,
+          strength
+        });
+        const isScroll = eventTrigger === 'scroll';
+
+        if (!isScroll) {
+          movementX = this.axis === 'y' ? 0 : clamp(x, this.minX, this.maxX);
+          movementY = this.axis === 'x' ? 0 : clamp(y, this.minY, this.maxY);
+        }
+
+        if (isScroll) {
+          const scrollMovement = elementMovement({
+            x: context.movement.x,
+            y: context.movement.y,
+            originX: this.originX,
+            originY: this.originY,
+            strength,
+            event: context.event
+          }).y;
+          movementX = this.axis === 'x' ? scrollMovement : 0;
+          movementY = this.axis === 'y' || !this.axis ? scrollMovement : 0;
+        }
+      } else if (this.cycle > 0) {
+        const {
+          shape,
+          eventData
+        } = context;
+
+        if (shape) {
+          const cycleX = this.axis === 'x' ? cyclicMovement({
+            referencePosition: eventTrigger === 'scroll' ? 0 : eventData.x,
+            elementPosition: shape.left,
+            spanningRange: eventTrigger === 'scroll' ? window.innerWidth : shape.width,
+            cycles: this.cycle
+          }) : 0;
+          const cycleY = this.axis === 'y' || !this.axis ? cyclicMovement({
+            referencePosition: eventTrigger === 'scroll' ? 0 : eventData.y,
+            elementPosition: shape.top,
+            spanningRange: eventTrigger === 'scroll' ? window.innerHeight : shape.height,
+            cycles: this.cycle
+          }) : 0;
+          movementX = cycleX * strength;
+          movementY = cycleY * strength;
+        }
+      }
+
+      let transformType = this.type;
+      transformType = transformType === 'scaleX' || transformType === 'scaleY' ? 'scale' : transformType;
+      const transform = this.transformSwitch(transformType, movementX, movementY, this.strength);
+      return {
+        transform
+      };
+    }
+
+  }
+};
+
+/* script */
+const __vue_script__$1 = script$1;
+/* template */
+
+var __vue_render__$1 = function () {
+  var _vm = this;
+
+  var _h = _vm.$createElement;
+
+  var _c = _vm._self._c || _h;
+
+  return _c(_vm.tag, {
+    tag: "component",
+    style: Object.assign({}, _vm.transform, _vm.transformParameters)
+  }, [_vm._t("default")], 2);
+};
+
+var __vue_staticRenderFns__$1 = [];
+/* style */
+
+const __vue_inject_styles__$1 = undefined;
+/* scoped */
+
+const __vue_scope_id__$1 = undefined;
+/* module identifier */
+
+const __vue_module_identifier__$1 = undefined;
+/* functional template */
+
+const __vue_is_functional_template__$1 = false;
+/* style inject */
+
+/* style inject SSR */
+
+/* style inject shadow dom */
+
+const __vue_component__$1 = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$1,
+  staticRenderFns: __vue_staticRenderFns__$1
+}, __vue_inject_styles__$1, __vue_script__$1, __vue_scope_id__$1, __vue_is_functional_template__$1, __vue_module_identifier__$1, false, undefined, undefined, undefined);
+
+//
+var script$2 = {
+  name: 'KinesisAudio',
+  inject: ['context'],
+  mixins: [motionMixin],
+  props: {
+    tag: {
+      type: String,
+      default: 'div'
+    },
+    audioIndex: {
+      type: Number,
+      default: 50
+    }
+  },
+  computed: {
+    transform() {
+      return this.transformAudio();
+    },
+
+    transformParameters() {
+      return {
+        transitionProperty: 'transform',
+        transitionDuration: this.transitionDuration,
+        transformOrigin: this.transformOrigin,
+        transitionTimingFunction: this.transitionTimingFunction
+      };
+    },
+
+    transitionDuration() {
+      const {
+        duration
+      } = this.context;
+      return `${duration}ms`;
+    },
+
+    transitionTimingFunction() {
+      return this.context.easing;
+    }
+
+  },
+  methods: {
+    transformAudio() {
+      const {
+        audioData
+      } = this.context;
+      if (!this.context.audioData) return;
+      const transformType = this.type;
+      const {
+        strength
+      } = this;
+      let amplitude;
+      let transform; // eslint-disable-next-line default-case
+
+      switch (transformType) {
+        case 'translate':
+          amplitude = audioData ? audioData[0][this.audioIndex] : 0;
+          transform = `translate3d(${amplitude * strength}px, 0, 0)`;
+          break;
+
+        case 'rotate':
+          amplitude = audioData ? audioData[0][this.audioIndex] : 0;
+          transform = `rotate3d(0,0,1,${amplitude * strength / 10}deg)`;
+          break;
+
+        case 'scale':
+          // eslint-disable-next-line no-nested-ternary
+          amplitude = audioData ? audioData[0][this.audioIndex] / strength < 1 ? 1 : audioData[0][this.audioIndex] / (strength * 2) : 1;
+          transform = `scale(${amplitude})`;
+          break;
+      } // eslint-disable-next-line consistent-return
+
+
+      return {
+        transform
+      };
+    }
+
+  }
+};
+
+/* script */
+const __vue_script__$2 = script$2;
+/* template */
+
+var __vue_render__$2 = function () {
+  var _vm = this;
+
+  var _h = _vm.$createElement;
+
+  var _c = _vm._self._c || _h;
+
+  return _c(_vm.tag, {
+    tag: "component",
+    style: Object.assign({}, _vm.transform, _vm.transformParameters)
+  }, [_vm._t("default")], 2);
+};
+
+var __vue_staticRenderFns__$2 = [];
+/* style */
+
+const __vue_inject_styles__$2 = undefined;
+/* scoped */
+
+const __vue_scope_id__$2 = undefined;
+/* module identifier */
+
+const __vue_module_identifier__$2 = undefined;
+/* functional template */
+
+const __vue_is_functional_template__$2 = false;
+/* style inject */
+
+/* style inject SSR */
+
+/* style inject shadow dom */
+
+const __vue_component__$2 = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$2,
+  staticRenderFns: __vue_staticRenderFns__$2
+}, __vue_inject_styles__$2, __vue_script__$2, __vue_scope_id__$2, __vue_is_functional_template__$2, __vue_module_identifier__$2, false, undefined, undefined, undefined);
+
+//
+var script$3 = {
+  name: 'KinesisScroll',
+  mixins: [baseMixin, perspectiveMixin, motionMixin, transformMixin],
+
+  data() {
+    return {
+      transform: {}
+    };
+  },
+
+  mounted() {
+    window.addEventListener('scroll', this.handleScroll, {
+      passive: true
+    });
+  },
+
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.handleScroll, {
+      passive: true
+    });
+  },
+
+  computed: {
+    transformParameters() {
+      return {
+        transitionProperty: 'transform',
+        transitionDuration: this.transitionDuration,
+        transformOrigin: this.transformOrigin,
+        transitionTimingFunction: this.easing
+      };
+    },
+
+    transitionDuration() {
+      return `${this.duration}ms`;
+    }
+
+  },
+  methods: {
+    getCycleMovement(xPos, yPos, width, height, shape) {
+      const x = (xPos - shape.left) * (Math.PI * 2) / width;
+      const y = (yPos - shape.top) * (Math.PI * 2) / height;
+      this.cycleMovement = {
+        x,
+        y,
+        width,
+        height
+      };
+    },
+
+    handleScroll: throttle( // eslint-disable-next-line func-names
+    function () {
+      if (!this.active) return;
+      const shape = this.$el.getBoundingClientRect();
+      const isInViewport = inViewport(shape);
+
+      if (isInViewport && !!shape.height) {
+        this.transformBehavior(shape);
+      }
+    }, 19, 'scroll'),
+
+    transformBehavior(shape) {
+      let movementX;
+      let movementY;
+      const scrollPosition = (shape.top - window.innerHeight) / (shape.height + window.innerHeight);
+
+      if (this.cycle <= 0) {
+        const scrollMovement = scrollPosition * this.strength;
+        movementX = this.axis === 'x' ? scrollMovement : 0;
+        movementY = this.axis === 'y' || !this.axis ? scrollMovement : 0;
+
+        if (this.maxX) {
+          movementX = Math.min(movementX, this.maxX);
+        }
+
+        if (this.minX) {
+          movementX = Math.max(movementX, this.minX);
+        }
+
+        if (this.maxY) {
+          movementY = Math.min(movementY, this.maxY);
+        }
+
+        if (this.minY) {
+          movementY = Math.max(movementY, this.minY);
+        }
+      } else if (this.cycle > 0) {
+        const {
+          x,
+          y,
+          width,
+          height
+        } = this.getCycleMovement(0, 0, window.innerWidth, window.innerHeight, shape);
+        const cycleX = width * Math.sin(x * this.cycle);
+        const cycleY = height * Math.sin(y * this.cycle);
+        movementX = this.axis === 'x' ? cycleX / (width / 2) * this.strength : 0;
+        movementY = this.axis === 'y' || !this.axis ? cycleY / (height / 2) * this.strength : 0;
+      }
+
+      let transformType = this.type;
+      transformType = transformType === 'scaleX' || transformType === 'scaleY' ? 'scale' : transformType;
+      const transform = this.transformSwitch(transformType, movementX, movementY, this.strength);
+      this.transform = {
+        transform
+      };
+    }
+
+  }
+};
+
+/* script */
+const __vue_script__$3 = script$3;
+/* template */
+
+var __vue_render__$3 = function () {
+  var _vm = this;
+
+  var _h = _vm.$createElement;
+
+  var _c = _vm._self._c || _h;
+
+  return _c(_vm.tag, {
+    tag: "component",
+    style: Object.assign({}, _vm.transform, _vm.transformParameters)
+  }, [_vm._t("default")], 2);
+};
+
+var __vue_staticRenderFns__$3 = [];
+/* style */
+
+const __vue_inject_styles__$3 = undefined;
+/* scoped */
+
+const __vue_scope_id__$3 = undefined;
+/* module identifier */
+
+const __vue_module_identifier__$3 = undefined;
+/* functional template */
+
+const __vue_is_functional_template__$3 = false;
+/* style inject */
+
+/* style inject SSR */
+
+/* style inject shadow dom */
+
+const __vue_component__$3 = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$3,
+  staticRenderFns: __vue_staticRenderFns__$3
+}, __vue_inject_styles__$3, __vue_script__$3, __vue_scope_id__$3, __vue_is_functional_template__$3, __vue_module_identifier__$3, false, undefined, undefined, undefined);
+
+//
+var script$4 = {
+  name: 'KinesisDistance',
+  props: {
+    tag: {
+      type: String,
+      default: 'div'
+    },
+    type: {
+      type: String,
+      default: 'translate' // translate, rotate, scale, scaleX, scaleY, depth, custom
+
+    },
+    transformOrigin: {
+      type: String,
+      default: 'center'
+    },
+    originX: {
+      type: Number,
+      default: 50
+    },
+    originY: {
+      type: Number,
+      default: 50
+    },
+    strength: {
+      type: Number,
+      default: 10
+    },
+    axis: {
+      type: String,
+      default: null
+    },
+    maxX: {
+      type: Number,
+      default: null
+    },
+    maxY: {
+      type: Number,
+      default: null
+    },
+    minX: {
+      type: Number,
+      default: null
+    },
+    minY: {
+      type: Number,
+      default: null
+    },
+    distance: {
+      type: Number,
+      default: 100
+    },
+    cycle: {
+      type: Number,
+      default: 0
+    },
+    active: {
+      type: Boolean,
+      default: true
+    },
+    duration: {
+      type: Number,
+      default: 1001
+    },
+    easing: {
+      type: String,
+      default: 'cubic-bezier(0.23, 1, 0.32, 1)'
+    },
+    perspective: {
+      type: Number,
+      default: 1000
+    }
+  },
+
+  data() {
+    return {
+      pointer: {
+        x: 0,
+        y: 0
+      },
+      transform: {},
+      component: 'kidistance',
+      throttle: 500
+    };
+  },
+
+  mounted() {
+    window.addEventListener('scroll', this.handleMovement);
+  },
+
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.handleMovement);
+  },
+
+  computed: {
+    style() {
+      return {
+        perspective: `${this.perspective}px`
+      };
+    },
+
+    transformParameters() {
+      return {
+        position: 'relative',
+        transitionProperty: 'transform',
+        transitionDuration: this.transitionDuration,
+        transformOrigin: this.transformOrigin,
+        transitionTimingFunction: this.easing
+      };
+    },
+
+    transitionDuration() {
+      return `${this.duration}ms`;
+    }
+
+  },
+  methods: {
+    getCoordinates(x, y) {
+      const shape = this.$el.getBoundingClientRect();
+      return {
+        x: x + shape.left,
+        y: y + shape.top
+      };
+    },
+
+    getDistance(x1, x2, y1, y2) {
+      return Math.floor(Math.hypot(x2 - x1, y2 - y1));
+    },
+
+    // eslint-disable-next-line func-names
+    handleMovement: throttle(function (event) {
+      window.addEventListener('mousemove', this.handleMovement);
+      const {
+        pointer
+      } = this;
+      pointer.x = event.clientX;
+      pointer.y = event.clientY;
+      this.transformBehavior();
+    }, 50),
+
+    transformBehavior() {
+      const shape = this.$el.getBoundingClientRect();
+      const center = this.getCoordinates(shape.width / 2, shape.height / 2);
+      const distance = this.getDistance(this.pointer.x, center.x, this.pointer.y, center.y);
+
+      if (distance > this.distance) {
+        this.transform = {};
+        this.throttle = 500;
+        return;
+      }
+
+      this.throttle = 50;
+      const transform = `scale(${distance / this.distance})`; // Add radius from which the transfrom will start
+
+      this.transform = {
+        transform
+      };
+    },
+
+    scaleMovement(x, y) {
+      const {
+        type
+      } = this;
+      const movement = Math.sign(this.strength) * (Math.abs(x) + Math.abs(y)) / 10 + 1;
+      return `scale3d(${type === 'scaleX' || type === 'scale' ? movement : 1},
+      ${type === 'scaleY' || type === 'scale' ? movement : 1},
+      1)`;
+    }
+
+  }
+};
+
+/* script */
+const __vue_script__$4 = script$4;
+/* template */
+
+var __vue_render__$4 = function () {
+  var _vm = this;
+
+  var _h = _vm.$createElement;
+
+  var _c = _vm._self._c || _h;
+
+  return _c(_vm.tag, {
+    tag: "component",
+    style: Object.assign({}, _vm.transform, _vm.transformParameters)
+  }, [_vm._t("default")], 2);
+};
+
+var __vue_staticRenderFns__$4 = [];
+/* style */
+
+const __vue_inject_styles__$4 = undefined;
+/* scoped */
+
+const __vue_scope_id__$4 = undefined;
+/* module identifier */
+
+const __vue_module_identifier__$4 = undefined;
+/* functional template */
+
+const __vue_is_functional_template__$4 = false;
+/* style inject */
+
+/* style inject SSR */
+
+/* style inject shadow dom */
+
+const __vue_component__$4 = /*#__PURE__*/normalizeComponent({
+  render: __vue_render__$4,
+  staticRenderFns: __vue_staticRenderFns__$4
+}, __vue_inject_styles__$4, __vue_script__$4, __vue_scope_id__$4, __vue_is_functional_template__$4, __vue_module_identifier__$4, false, undefined, undefined, undefined);
+
+const Plugin = {
+  install(vue) {
+    vue.component(__vue_component__$2.name, __vue_component__$2);
+    vue.component(__vue_component__.name, __vue_component__);
+    vue.component(__vue_component__$4.name, __vue_component__$4);
+    vue.component(__vue_component__$1.name, __vue_component__$1);
+    vue.component(__vue_component__$3.name, __vue_component__$3);
+  }
+
+};
+let GlobalVue = null;
+
+if (typeof window !== 'undefined') {
+  GlobalVue = window.vue;
+} else if (typeof global !== 'undefined') {
+  GlobalVue = global.vue;
+}
+
+if (GlobalVue) {
+  GlobalVue.use(Plugin);
+}
+
+var components = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  'default': Plugin,
+  KinesisAudio: __vue_component__$2,
+  KinesisContainer: __vue_component__,
+  KinesisDistance: __vue_component__$4,
+  KinesisElement: __vue_component__$1,
+  KinesisScroll: __vue_component__$3
+});
+
+/* eslint-disable */
+
+const install = function (vue) {
+  if (install.installed) {
+    return;
+  }
+
+  install.installed = true;
+
+  for (const name in components) {
+    vue.use(components[name]);
+  }
+
+  vue.component('kinesis-container', __vue_component__);
+  vue.component('kinesis-element', __vue_component__$1);
+  vue.component('kinesis-audio', __vue_component__$2);
+  vue.component('kinesis-scroll', __vue_component__$3);
+  vue.component('kinesis-distance', __vue_component__$4);
+};
+
+const Plugin$1 = {
+  install
+};
+let GlobalVue$1 = null;
+
+if (typeof window !== 'undefined') {
+  GlobalVue$1 = window.vue;
+} else if (typeof global !== 'undefined') {
+  GlobalVue$1 = global.vue;
+}
+
+if (GlobalVue$1) {
+  GlobalVue$1.use(Plugin$1);
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Plugin$1);
+
+
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e&":
 /*!*******************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e& ***!
@@ -37564,7 +39610,43 @@ var render = function() {
             _vm._v("Отправить сообщение в канал")
           ])
         ])
-      ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "col-md-12" },
+        [
+          _c(
+            "kinesis-container",
+            [
+              _vm._v("\n                Here, you can put\n                "),
+              _c("kinesis-element", { attrs: { strength: 10 } }, [
+                _c("img", {
+                  staticClass: "paralax-image",
+                  attrs: {
+                    src:
+                      "https://sun9-44.userapi.com/impf/c622017/v622017379/4d704/peg4tB7irek.jpg?size=598x600&quality=96&proxy=1&sign=1256343fe696924b45fdbe8de5b31a14&type=album",
+                    alt: ""
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("kinesis-element", { attrs: { strength: 20 } }, [
+                _c("img", {
+                  staticClass: "paralax-image",
+                  attrs: {
+                    src:
+                      "https://sun9-59.userapi.com/impf/c622017/v622017379/4d70b/p-KAoRezdNw.jpg?size=598x600&quality=96&proxy=1&sign=2e30a9b5f0cadecd008ecbb0d711268a&type=album",
+                    alt: ""
+                  }
+                })
+              ])
+            ],
+            1
+          )
+        ],
+        1
+      )
     ])
   ])
 }
@@ -49831,7 +51913,9 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ExampleComponent.vue?vue&type=template&id=299e239e& */ "./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e&");
 /* harmony import */ var _ExampleComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ExampleComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _ExampleComponent_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ExampleComponent.vue?vue&type=style&index=0&lang=scss& */ "./resources/js/components/ExampleComponent.vue?vue&type=style&index=0&lang=scss&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
 
 
 
@@ -49839,7 +51923,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _ExampleComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["render"],
   _ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
@@ -49868,6 +51952,22 @@ component.options.__file = "resources/js/components/ExampleComponent.vue"
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./ExampleComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/ExampleComponent.vue?vue&type=style&index=0&lang=scss&":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/components/ExampleComponent.vue?vue&type=style&index=0&lang=scss& ***!
+  \****************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--7-2!../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../node_modules/vue-loader/lib??vue-loader-options!./ExampleComponent.vue?vue&type=style&index=0&lang=scss& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ExampleComponent.vue?vue&type=style&index=0&lang=scss&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
 
 /***/ }),
 
