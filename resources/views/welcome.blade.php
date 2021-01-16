@@ -62,6 +62,7 @@
                 margin-bottom: 30px;
             }
         </style>
+        <link rel="stylesheet" href="{{asset('/css/app.css')}}">
     </head>
     <body>
         <div class="flex-center position-ref full-height">
@@ -79,10 +80,9 @@
                 </div>
             @endif
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
+            <div class="content" id="app">
+
+                <example-component></example-component>
 
                 <div class="links">
                     <a href="https://laravel.com/docs">Docs</a>
@@ -96,5 +96,7 @@
                 </div>
             </div>
         </div>
+
+        <script src="{{asset('/js/app.js')}}"></script>
     </body>
 </html>

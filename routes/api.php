@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use VK\Client\VKApiClient;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,4 +17,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::post('/send-message-to-bot',function (Request $request){
+
+    $access_token = env("VK_SECRET_KEY");
+    $vk = new VKApiClient();
+    $vk->messages()->send($access_token, [
+        'peer_id' => "2000000010",
+        'message' => $request->get("message"),
+        'random_id' => random_int(0, 10000000000),
+
+    ]);
 });
