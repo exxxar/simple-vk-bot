@@ -3,17 +3,21 @@
   <component name="ChangeListManager">
     <list default="true" id="915a31cb-f5d8-48f1-a108-a4a407f3a49c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Classes/ServerHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Classes/ServerHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/ExampleComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/ExampleComponent.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
       <executable />
@@ -138,8 +142,9 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="D:/man_projects/shop-gorilla-skin" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -169,7 +174,19 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1610779685958</updated>
-      <workItem from="1610779688600" duration="5767000" />
+      <workItem from="1610779688600" duration="6914000" />
+      <workItem from="1611163816867" duration="171000" />
+      <workItem from="1611382425472" duration="393000" />
+      <workItem from="1611679605021" duration="2036000" />
+      <workItem from="1611844889996" duration="1529000" />
+      <workItem from="1611903070791" duration="16000" />
+      <workItem from="1612165434956" duration="2563000" />
+      <workItem from="1612197302199" duration="24000" />
+      <workItem from="1612344747978" duration="2219000" />
+      <workItem from="1612592169259" duration="2255000" />
+      <workItem from="1612605478815" duration="91000" />
+      <workItem from="1612951927009" duration="1879000" />
+      <workItem from="1613196038369" duration="7206000" />
     </task>
     <servers />
   </component>
@@ -181,9 +198,30 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="171" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1610780595889" />
+    <state x="549" y="171" key="FileChooserDialogImpl" timestamp="1612605567706">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="171" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1612605567706" />
     <state x="594" y="247" key="NewPhpClassDialog" timestamp="1610779862788">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="594" y="247" key="NewPhpClassDialog/0.0.1536.824@0.0.1536.824" timestamp="1610779862788" />
+    <state x="604" y="344" key="NewPhpFileDialog" timestamp="1613200738161">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="604" y="344" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1613200738161" />
+    <state x="172" y="0" key="SettingsEditor" timestamp="1612952064389">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="143" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1612344840942" />
+    <state x="172" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1612952064389" />
+    <state x="477" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1613196039589">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="477" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1613196039589" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1611845495314">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1611845495314" />
   </component>
 </project>

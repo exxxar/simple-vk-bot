@@ -1,0 +1,34 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateKnowledgeTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('knowledge', function (Blueprint $table) {
+            $table->id();
+            $table->string("keyword")->default("")->comment("ключевое слово для бота");
+            $table->string("answer")->default("")->comment("ответ бота на ключевое слово");
+            $table->boolean("is_active")->default(true);
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('knowledge');
+    }
+}

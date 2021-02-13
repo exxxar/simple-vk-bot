@@ -4,7 +4,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <input type="text" v-model="message">
-                    <button @click="sendMessage">Отправить сообщение в канал</button>
+                    <button @click="sendMessage">2131 Отправить сообщение в канал</button>
                 </div>
             </div>
             <div class="col-md-12">

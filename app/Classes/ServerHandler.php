@@ -4,6 +4,7 @@
 namespace App\Classes;
 
 
+use App\Knowledge;
 use Illuminate\Support\Facades\Log;
 use VK\CallbackApi\Server\VKCallbackApiServerHandler;
 use VK\Client\VKApiClient;
@@ -12,7 +13,7 @@ class ServerHandler extends VKCallbackApiServerHandler
 {
     const SECRET = 'fastoran_bot_secret_1';
     const GROUP_ID = 129163510;
-    const CONFIRMATION_TOKEN = 'fd1b1f3a';
+    const CONFIRMATION_TOKEN = '6176afd6';
 
     protected $chatId;
     protected $text;
@@ -28,50 +29,21 @@ class ServerHandler extends VKCallbackApiServerHandler
     public function messageNew(int $group_id, ?string $secret, array $object)
     {
         Log::info(print_r($object, true));
-
-
         $this->chatId = $object["peer_id"];
         $this->text = $object["text"];
 
-        $arr = [
-            [
-                "key" => "привет",
-                "func" => function () {
-                    $this->sendMessage($this->chatId, "Привет, Друг!");
-                },
-            ],
-            [
-                "key" => "как дела",
-                "func" => function () {
-                    $this->sendMessage($this->chatId, "Норм, а у тебя?");
-                    },
-            ],
-
-            [
-                "key" => "хай",
-                "func" => function () {
-                    $this->sendMessage($this->chatId, "Нихао!");
-                },
-            ]
-
-        ];
-
+        $tmp = mb_strtolower($this->text);
+        // $answers = Knowledge::where("keyword","=","$tmp")->get();
+        $answers = Knowledge::where("keyword","like", "%$tmp%")->get();
         $is_found = false;
-        foreach ($arr as $item) {
-
-            $tmp = mb_strtolower($this->text);
-
-            Log::info("$tmp =>");
-            if (strpos($tmp, $item["key"]) !==false) {
-                $item["func"]();
-                $is_found = true;
-                //break;
-            }
+        if (count($answers) > 0) {
+            $tmp_answer = $answers->random(1);
+            $this->sendMessage($this->chatId, $tmp_answer[0]->answer);
+            $is_found = true;
         }
 
         if (!$is_found)
             $this->sendMessageWithKeyboard($this->chatId, "Я тебя не понимаю!(");
-
         //$this->sendMessageWithKeyboard($this->chatId,"Спасибо! Ваше сообщение: $this->text ");
         echo 'ok';
     }
@@ -97,34 +69,34 @@ class ServerHandler extends VKCallbackApiServerHandler
             'message' => $message,
             'random_id' => random_int(0, 10000000000),
             'keyboard' => json_encode([
-                "one_time"=>false,
-                "buttons"=>[
+                "one_time" => false,
+                "buttons" => [
                     [
                         [
-                            "action"=>[
-                                "type"=>"text",
-                                "payload"=>"{\"button\":\"привет\"}",
-                                "label"=>"Привет!"
+                            "action" => [
+                                "type" => "text",
+                                "payload" => "{\"button\":\"привет\"}",
+                                "label" => "Привет!"
                             ],
-                            "color"=>"positive"
+                            "color" => "positive"
                         ],
 
                         [
-                            "action"=>[
-                                "type"=>"text",
-                                "payload"=>"{\"button\":\"прощай\"}",
-                                "label"=>"Прощай!"
+                            "action" => [
+                                "type" => "text",
+                                "payload" => "{\"button\":\"прощай\"}",
+                                "label" => "Прощай!"
                             ],
-                            "color"=>"negative"
+                            "color" => "negative"
                         ]
-                    ],[
+                    ], [
                         [
-                            "action"=>[
-                                "type"=>"text",
-                                "payload"=>"{\"button\":\"как дела\"}",
-                                "label"=>"Как дела!"
+                            "action" => [
+                                "type" => "text",
+                                "payload" => "{\"button\":\"как дела\"}",
+                                "label" => "Как дела!"
                             ],
-                            "color"=>"secondary"
+                            "color" => "secondary"
                         ],
                     ]
                 ]

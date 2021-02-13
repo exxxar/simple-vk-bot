@@ -24,7 +24,7 @@ Route::post('/send-message-to-bot',function (Request $request){
     $access_token = env("VK_SECRET_KEY");
     $vk = new VKApiClient();
     $vk->messages()->send($access_token, [
-        'peer_id' => "2000000010",
+        'peer_id' => "14054379",
         'message' => $request->get("message"),
         'random_id' => random_int(0, 10000000000),
 
