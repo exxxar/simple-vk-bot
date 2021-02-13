@@ -3,13 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="915a31cb-f5d8-48f1-a108-a4a407f3a49c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Classes/ServerHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Classes/ServerHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/ExampleComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/ExampleComponent.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/KnowledgeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/KnowledgeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/knowledge/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/knowledge/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -186,7 +181,7 @@
       <workItem from="1612592169259" duration="2255000" />
       <workItem from="1612605478815" duration="91000" />
       <workItem from="1612951927009" duration="1879000" />
-      <workItem from="1613196038369" duration="7206000" />
+      <workItem from="1613196038369" duration="8856000" />
     </task>
     <servers />
   </component>
@@ -219,6 +214,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="477" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1613196039589" />
+    <state x="425" y="187" key="run.anything.popup" timestamp="1613204655927">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1613204655927" />
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1611845495314">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

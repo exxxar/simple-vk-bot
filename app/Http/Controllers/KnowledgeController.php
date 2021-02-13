@@ -24,15 +24,23 @@ class KnowledgeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
+        $request->validate([
+            "keyword" => "required",
+            "answer" => "required"
+        ]);
+
+        Knowledge::create($request->all());
+
+        return redirect()->route("knowledge.index");
         //
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -43,7 +51,7 @@ class KnowledgeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Knowledge  $knowledge
+     * @param \App\Knowledge $knowledge
      * @return \Illuminate\Http\Response
      */
     public function show(Knowledge $knowledge)
@@ -54,7 +62,7 @@ class KnowledgeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Knowledge  $knowledge
+     * @param \App\Knowledge $knowledge
      * @return \Illuminate\Http\Response
      */
     public function edit(Knowledge $knowledge)
@@ -65,8 +73,8 @@ class KnowledgeController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Knowledge  $knowledge
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Knowledge $knowledge
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Knowledge $knowledge)
@@ -77,7 +85,7 @@ class KnowledgeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Knowledge  $knowledge
+     * @param \App\Knowledge $knowledge
      * @return \Illuminate\Http\Response
      */
     public function destroy(Knowledge $knowledge)
