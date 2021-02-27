@@ -13,7 +13,13 @@ class ServerHandler extends VKCallbackApiServerHandler
 {
     const SECRET = 'fastoran_bot_secret_1';
     const GROUP_ID = 129163510;
-    const CONFIRMATION_TOKEN = '6176afd6';
+
+    private $CONFIRMATION_TOKEN;
+
+    public function __construct()
+    {
+        $this->CONFIRMATION_TOKEN = env("APP_VK_CONFIRMATION_WORD");
+    }
 
     protected $chatId;
     protected $text;
@@ -21,8 +27,9 @@ class ServerHandler extends VKCallbackApiServerHandler
     function confirmation(int $group_id, ?string $secret)
     {
         Log::info(print_r($group_id, true));
+        Log::info("token=>" . $this->CONFIRMATION_TOKEN);
         if ($secret === static::SECRET && $group_id === static::GROUP_ID) {
-            echo static::CONFIRMATION_TOKEN;
+            echo $this->CONFIRMATION_TOKEN;
         }
     }
 
@@ -34,7 +41,7 @@ class ServerHandler extends VKCallbackApiServerHandler
 
         $tmp = mb_strtolower($this->text);
         // $answers = Knowledge::where("keyword","=","$tmp")->get();
-        $answers = Knowledge::where("keyword","like", "%$tmp%")->get();
+        $answers = Knowledge::where("keyword", "like", "%$tmp%")->get();
         $is_found = false;
         if (count($answers) > 0) {
             $tmp_answer = $answers->random(1);

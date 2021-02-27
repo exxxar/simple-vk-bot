@@ -45,7 +45,7 @@ class KnowledgeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -54,9 +54,12 @@ class KnowledgeController extends Controller
      * @param \App\Knowledge $knowledge
      * @return \Illuminate\Http\Response
      */
-    public function show(Knowledge $knowledge)
+    public function show($id)
     {
         //
+
+        $knowledge = Knowledge::find($id);
+        return view('knowledge.show', compact("knowledge"));
     }
 
     /**
@@ -65,9 +68,12 @@ class KnowledgeController extends Controller
      * @param \App\Knowledge $knowledge
      * @return \Illuminate\Http\Response
      */
-    public function edit(Knowledge $knowledge)
+    public function edit($id)
     {
         //
+        $knowledge= Knowledge::find($id);
+
+        return view("knowledge.edit",compact("knowledge"));
     }
 
     /**
@@ -77,19 +83,38 @@ class KnowledgeController extends Controller
      * @param \App\Knowledge $knowledge
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Knowledge $knowledge)
+    public function update(Request $request)
     {
-        //
+        $request->validate([
+            "id" => "required",
+            "keyword" => "required|min:2|max:100",
+            "answer" => "required|min:2|max:100"
+        ]);
+
+        $knowledge= Knowledge::find($request->get("id"));
+        $knowledge->keyword=$request->get("keyword");
+        $knowledge->answer=$request->get("answer");
+        $knowledge->save();
+
+        return response()
+            ->redirectToRoute("knowledge.index")
+            ->with("message","Запись $knowledge->id успешно обновлена!");
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param \App\Knowledge $knowledge
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy(Knowledge $knowledge)
+    public function destroy($id)
     {
-        //
+
+        $knowledge = Knowledge::find($id);
+        $knowledge->delete();
+
+        return back()
+            ->with("message", "Запись $id успешно удалена!");
+
     }
 }

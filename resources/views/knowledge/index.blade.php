@@ -11,6 +11,20 @@
 @section('content')
     <div class="row">
         <div class="col-12">
+            @if(\Session::has('message'))
+                <p>{{ \Session::get('message')}}</p>
+            @endif
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <a href="{{route("knowledge.create.page")}}"
+               target="_blank"
+               class="btn btn-outline-success">Добавить новое выражение</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
             <table class="table">
                 <thead>
                 <tr>
@@ -29,9 +43,14 @@
                         <td>{{$kn->keyword}}</td>
                         <td>{{$kn->answer}}</td>
                         <td>
-                            <button class="btn btn-info">Редактировать</button>
-                            <button class="btn btn-success">Посмотреть</button>
-                            <button class="btn btn-danger">Удалить</button>
+                            <a href="{{route("knowledge.edit", $kn->id)}}" target="_blank" class="btn btn-info">Редактировать</a>
+                            <a href="{{route("knowledge.show", $kn->id)}}" target="_blank" class="btn btn-success">Посмотреть</a>
+                            <form action="{{route("knowledge.delete",$kn->id)}}" method="POST">
+                                {{method_field('DELETE')}}
+                                {{csrf_field()}}
+                                <button type="submit" class="btn btn-danger">Удалить</button>
+                            </form>
+
                         </td>
                     </tr>
                 @endforeach
