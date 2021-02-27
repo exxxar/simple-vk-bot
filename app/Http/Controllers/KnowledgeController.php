@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\VKBotEvent;
 use App\Knowledge;
 use Illuminate\Http\Request;
 
@@ -15,6 +16,8 @@ class KnowledgeController extends Controller
     public function index()
     {
         $knowledges = Knowledge::all();
+
+        event(new VKBotEvent("index method"));
 
         return view('knowledge.index', compact('knowledges'));
     }
@@ -30,6 +33,8 @@ class KnowledgeController extends Controller
             "keyword" => "required",
             "answer" => "required"
         ]);
+
+        event(new VKBotEvent("create method"));
 
         Knowledge::create($request->all());
 
@@ -57,7 +62,7 @@ class KnowledgeController extends Controller
     public function show($id)
     {
         //
-
+        event(new VKBotEvent("show method"));
         $knowledge = Knowledge::find($id);
         return view('knowledge.show', compact("knowledge"));
     }
@@ -71,6 +76,7 @@ class KnowledgeController extends Controller
     public function edit($id)
     {
         //
+        event(new VKBotEvent("edit method"));
         $knowledge= Knowledge::find($id);
 
         return view("knowledge.edit",compact("knowledge"));
@@ -91,6 +97,8 @@ class KnowledgeController extends Controller
             "answer" => "required|min:2|max:100"
         ]);
 
+        event(new VKBotEvent("update method"));
+
         $knowledge= Knowledge::find($request->get("id"));
         $knowledge->keyword=$request->get("keyword");
         $knowledge->answer=$request->get("answer");
@@ -109,6 +117,8 @@ class KnowledgeController extends Controller
      */
     public function destroy($id)
     {
+
+        event(new VKBotEvent("destroy method"));
 
         $knowledge = Knowledge::find($id);
         $knowledge->delete();

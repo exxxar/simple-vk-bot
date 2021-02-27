@@ -3,12 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="915a31cb-f5d8-48f1-a108-a4a407f3a49c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Classes/ServerHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Classes/ServerHandler.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/KnowledgeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/KnowledgeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/knowledge/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/knowledge/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/knowledge/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/knowledge/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/knowledge/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/knowledge/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,7 +183,7 @@
       <workItem from="1613196038369" duration="9590000" />
       <workItem from="1613227127288" duration="85000" />
       <workItem from="1613541110825" duration="36000" />
-      <workItem from="1614405896148" duration="6004000" />
+      <workItem from="1614405896148" duration="7396000" />
     </task>
     <servers />
   </component>
