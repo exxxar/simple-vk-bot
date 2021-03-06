@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\KnowledgeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use VK\Client\VKApiClient;
@@ -19,7 +21,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/send-message-to-bot',function (Request $request){
+Route::post('/send-message-to-bot', function (Request $request) {
 
     $access_token = env("VK_SECRET_KEY");
     $vk = new VKApiClient();
@@ -29,4 +31,39 @@ Route::post('/send-message-to-bot',function (Request $request){
         'random_id' => random_int(0, 10000000000),
 
     ]);
+});
+
+Route::group([
+    "namespace" => "Api",
+    "name" => "knowledge.api.",
+    "prefix" => "auth"
+], function () {
+    Route::post("/login", \AuthController::class . "@login")->name("login");
+    Route::post("/signup", \AuthController::class . "@signup")->name("login");
+});
+
+
+Route::group([
+    "middleware" => [
+        'auth:api'
+    ],
+    "namespace" => "Api",
+    "name" => "knowledge.api.",
+    "prefix" => "knowledge"], function () {
+
+    Route::get('/list', \KnowledgeController::class . "@index")
+        ->name("list");
+
+    Route::put('/update', \KnowledgeController::class . "@update")
+        ->name("update");
+
+    Route::post('/create', \KnowledgeController::class . "@create")
+        ->name("create");
+
+    Route::delete('/delete/{id}', \KnowledgeController::class . "@destroy")
+        ->name("delete")
+        ->where(["id" => "[0-9]+"]);
+
+    Route::get('/show/{id}', \KnowledgeController::class . "@show")
+        ->name("show");
 });
