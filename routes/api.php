@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\KnowledgeController;
+use Cryptolib\CryptoCore\Classes\UserPayloadServiceForServer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use VK\Client\VKApiClient;
@@ -32,6 +33,9 @@ Route::post('/send-message-to-bot', function (Request $request) {
 
     ]);
 });
+
+
+
 
 Route::group([
     "namespace" => "Api",
@@ -67,3 +71,14 @@ Route::group([
     Route::get('/show/{id}', \KnowledgeController::class . "@show")
         ->name("show");
 });
+
+
+Route::apiResource('profile', 'ProfileController');
+
+Route::apiResource('student', 'StudentController');
+
+Route::apiResource('dictionary', 'DictionaryController');
+
+Route::apiResource('lesson', 'LessonController');
+
+Route::apiResource('class-call-list', 'ClassCallListController');

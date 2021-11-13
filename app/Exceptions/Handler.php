@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Validation\ValidationException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -29,7 +30,7 @@ class Handler extends ExceptionHandler
     /**
      * Report or log an exception.
      *
-     * @param  \Throwable  $exception
+     * @param \Throwable $exception
      * @return void
      *
      * @throws \Exception
@@ -42,14 +43,41 @@ class Handler extends ExceptionHandler
     /**
      * Render an exception into an HTTP response.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Throwable  $exception
+     * @param \Illuminate\Http\Request $request
+     * @param \Throwable $exception
      * @return \Symfony\Component\HttpFoundation\Response
      *
      * @throws \Throwable
      */
     public function render($request, Throwable $exception)
     {
+        if ($exception instanceof ResponseStatusException) {
+            $object = $exception->toJson();
+
+            return response()->json([
+                "title" => $object->title,
+                "code" => $object->code,
+                "message" => $object->message
+            ], $object->code);
+        }
+
+        if ($exception instanceof ValidationException) {
+            $tmp = "";
+
+            foreach ($exception->errors() as $error) {
+                foreach ($error as $e)
+                    $tmp .= $e . " ";
+            }
+
+            return response()->json([
+                "title" => "Validation Error",
+                "code" => $exception->status,
+                "message" => $tmp
+            ], $exception->status);
+
+
+        }
+
         return parent::render($request, $exception);
     }
 }

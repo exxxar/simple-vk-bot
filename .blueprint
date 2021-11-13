@@ -1,0 +1,60 @@
+created:
+    - app/Http/Controllers/ProfileController.php
+    - app/Http/Controllers/StudentController.php
+    - app/Http/Controllers/DictionaryController.php
+    - app/Http/Controllers/LessonController.php
+    - app/Http/Controllers/ClassCallListController.php
+    - database/factories/ProfileFactory.php
+    - database/factories/StudentFactory.php
+    - database/factories/DictionaryFactory.php
+    - database/factories/LessonFactory.php
+    - database/factories/ClassCallListFactory.php
+    - database/migrations/2021_11_13_070636_create_profiles_table.php
+    - database/migrations/2021_11_13_070637_create_students_table.php
+    - database/migrations/2021_11_13_070638_create_dictionaries_table.php
+    - database/migrations/2021_11_13_070639_create_lessons_table.php
+    - database/migrations/2021_11_13_070640_create_class_call_lists_table.php
+    - database/migrations/2021_11_13_070641_create_class_call_list_lesson_table.php
+    - app/Profile.php
+    - app/Student.php
+    - app/Dictionary.php
+    - app/Lesson.php
+    - app/ClassCallList.php
+    - database/seeds/ProfileSeeder.php
+    - database/seeds/StudentSeeder.php
+    - database/seeds/DictionarySeeder.php
+    - database/seeds/LessonSeeder.php
+    - database/seeds/ClassCallListSeeder.php
+    - tests/Feature/Http/Controllers/ProfileControllerTest.php
+    - tests/Feature/Http/Controllers/StudentControllerTest.php
+    - tests/Feature/Http/Controllers/DictionaryControllerTest.php
+    - tests/Feature/Http/Controllers/LessonControllerTest.php
+    - tests/Feature/Http/Controllers/ClassCallListControllerTest.php
+    - app/Http/Requests/ProfileStoreRequest.php
+    - app/Http/Requests/ProfileUpdateRequest.php
+    - app/Http/Requests/StudentStoreRequest.php
+    - app/Http/Requests/StudentUpdateRequest.php
+    - app/Http/Requests/DictionaryStoreRequest.php
+    - app/Http/Requests/DictionaryUpdateRequest.php
+    - app/Http/Requests/LessonStoreRequest.php
+    - app/Http/Requests/LessonUpdateRequest.php
+    - app/Http/Requests/ClassCallListStoreRequest.php
+    - app/Http/Requests/ClassCallListUpdateRequest.php
+    - app/Http/Resources/ProfileCollection.php
+    - app/Http/Resources/ProfileResource.php
+    - app/Http/Resources/StudentCollection.php
+    - app/Http/Resources/StudentResource.php
+    - app/Http/Resources/DictionaryCollection.php
+    - app/Http/Resources/DictionaryResource.php
+    - app/Http/Resources/LessonCollection.php
+    - app/Http/Resources/LessonResource.php
+    - app/Http/Resources/ClassCallListCollection.php
+    - app/Http/Resources/ClassCallListResource.php
+updated:
+    - routes/api.php
+models:
+    Profile: { id: id, first_name: 'string nullable', last_name: 'string nullable', faculty: 'unsigned integer default:1', speciality: 'unsigned integer default:1', department: 'unsigned integer default:1', group: 'unsigned integer default:1', course: 'unsigned integer default:1', vk_url: 'string:1000 nullable', true_first_name: 'string nullable', true_last_name: 'string nullable', student_id: 'unsigned integer nullable', user_id: 'unsigned integer', blocked_at: 'timestamp nullable', relationships: { hasOne: 'User, Student' } }
+    Student: { id: id, first_name: string, last_name: string, faculty: 'unsigned integer default:1', speciality: 'unsigned integer default:1', department: 'unsigned integer default:1', group: 'unsigned integer default:1', course: 'unsigned integer default:1' }
+    Dictionary: { id: id, title: string, type: 'enum:faculty,speciality,department,group,course', code: string }
+    Lesson: { id: id, auditory_number: string, teacher_full_name: string, teacher_email: string, faculty: 'unsigned integer default:1', speciality: 'unsigned integer default:1', department: 'unsigned integer default:1', group: 'unsigned integer default:1', course: 'unsigned integer default:1', relationships: { belongsToMany: ClassCallList } }
+    ClassCallList: { id: id, title: string, index: integer, start_at: string, end_at: string, relationships: { belongsToMany: Lesson } }
