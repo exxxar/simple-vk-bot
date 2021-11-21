@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\KnowledgeController;
-use Cryptolib\CryptoCore\Classes\UserPayloadServiceForServer;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use VK\Client\VKApiClient;
@@ -73,12 +73,12 @@ Route::group([
 });
 
 
-Route::apiResource('profile', 'ProfileController');
+Route::apiResource('profiles', 'ProfileController');
 
-Route::apiResource('student', 'StudentController');
+Route::apiResource('students', 'StudentController');
 
 Route::apiResource('dictionary', 'DictionaryController');
 
-Route::apiResource('lesson', 'LessonController');
+Route::apiResource('lessons', 'LessonController');
 
 Route::apiResource('class-call-list', 'ClassCallListController');

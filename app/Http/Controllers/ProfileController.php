@@ -17,42 +17,42 @@ class ProfileController extends Controller
      */
     public function index(Request $request)
     {
-        $profiles = Profile::all();
+        $profiles = Profile::paginate(30);
 
         return new ProfileCollection($profiles);
     }
 
     /**
      * @param \App\Http\Requests\ProfileStoreRequest $request
-     * @return \App\Http\Resources\ProfileResource
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store(ProfileStoreRequest $request)
     {
         $profile = Profile::create($request->validated());
 
-        return new ProfileResource($profile);
+        return response()->json(new ProfileResource($profile));
     }
 
     /**
      * @param \Illuminate\Http\Request $request
      * @param \App\Profile $profile
-     * @return \App\Http\Resources\ProfileResource
+     * @return \Illuminate\Http\JsonResponse
      */
     public function show(Request $request, Profile $profile)
     {
-        return new ProfileResource($profile);
+        return response()->json(new ProfileResource($profile));
     }
 
     /**
      * @param \App\Http\Requests\ProfileUpdateRequest $request
      * @param \App\Profile $profile
-     * @return \App\Http\Resources\ProfileResource
+     * @return \Illuminate\Http\JsonResponse
      */
     public function update(ProfileUpdateRequest $request, Profile $profile)
     {
         $profile->update($request->validated());
 
-        return new ProfileResource($profile);
+        return response()->json(new ProfileResource($profile));
     }
 
     /**

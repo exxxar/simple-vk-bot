@@ -15,14 +15,16 @@ class VKBotEvent
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     public $message;
+    public $chatId;
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($message)
+    public function __construct($message, $chatId=null)
     {
         //
+        $this->chatId = $chatId;
         $this->message = $message;
     }
 

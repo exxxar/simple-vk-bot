@@ -12,14 +12,14 @@ class Lesson extends Model
      * @var array
      */
     protected $fillable = [
-        'auditory_number',
-        'teacher_full_name',
-        'teacher_email',
-        'faculty',
-        'speciality',
-        'department',
-        'group',
-        'course',
+        "auditory_number",
+        "teacher_full_name",
+        "teacher_email",
+        "faculty",
+        "speciality",
+        "department",
+        "group",
+        "course",
     ];
 
     /**
@@ -28,7 +28,7 @@ class Lesson extends Model
      * @var array
      */
     protected $casts = [
-        'id' => 'integer',
+        "id" => "integer",
     ];
 
 

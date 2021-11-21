@@ -17,42 +17,42 @@ class StudentController extends Controller
      */
     public function index(Request $request)
     {
-        $students = Student::all();
+        $students = Student::paginate(30);
 
         return new StudentCollection($students);
     }
 
     /**
      * @param \App\Http\Requests\StudentStoreRequest $request
-     * @return \App\Http\Resources\StudentResource
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store(StudentStoreRequest $request)
     {
         $student = Student::create($request->validated());
 
-        return new StudentResource($student);
+        return response()->json(new StudentResource($student));
     }
 
     /**
      * @param \Illuminate\Http\Request $request
      * @param \App\Student $student
-     * @return \App\Http\Resources\StudentResource
+     * @return \Illuminate\Http\JsonResponse
      */
     public function show(Request $request, Student $student)
     {
-        return new StudentResource($student);
+        return response()->json(new StudentResource($student));
     }
 
     /**
      * @param \App\Http\Requests\StudentUpdateRequest $request
      * @param \App\Student $student
-     * @return \App\Http\Resources\StudentResource
+     * @return \Illuminate\Http\JsonResponse
      */
     public function update(StudentUpdateRequest $request, Student $student)
     {
         $student->update($request->validated());
 
-        return new StudentResource($student);
+        return response()->json(new StudentResource($student));
     }
 
     /**

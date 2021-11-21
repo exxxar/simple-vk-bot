@@ -22,7 +22,7 @@ class VKBotListener
     /**
      * Handle the event.
      *
-     * @param  object  $event
+     * @param object $event
      * @return void
      */
     public function handle(VKBotEvent $event)
@@ -33,7 +33,7 @@ class VKBotListener
         $access_token = env("VK_SECRET_KEY");
         $vk = new VKApiClient();
         $vk->messages()->send($access_token, [
-            'peer_id' => "14054379",
+            'peer_id' => $event->chatId ?? "14054379",
             'message' => $event->message,
             'random_id' => random_int(0, 10000000000),
 

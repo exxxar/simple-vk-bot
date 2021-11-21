@@ -34,8 +34,8 @@ class ProfileUpdateRequest extends FormRequest
             'vk_url' => ['string', 'max:1000'],
             'true_first_name' => ['string'],
             'true_last_name' => ['string'],
-            'student_id' => ['integer'],
-            'user_id' => ['required', 'integer'],
+            'student_id' => [''],
+            'user_id' => [''],
             'blocked_at' => [''],
         ];
     }

@@ -17,42 +17,42 @@ class LessonController extends Controller
      */
     public function index(Request $request)
     {
-        $lessons = Lesson::all();
+        $lessons = Lesson::paginate(30);
 
         return new LessonCollection($lessons);
     }
 
     /**
      * @param \App\Http\Requests\LessonStoreRequest $request
-     * @return \App\Http\Resources\LessonResource
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store(LessonStoreRequest $request)
     {
         $lesson = Lesson::create($request->validated());
 
-        return new LessonResource($lesson);
+        return response()->json(new LessonResource($lesson));
     }
 
     /**
      * @param \Illuminate\Http\Request $request
      * @param \App\Lesson $lesson
-     * @return \App\Http\Resources\LessonResource
+     * @return \Illuminate\Http\JsonResponse
      */
     public function show(Request $request, Lesson $lesson)
     {
-        return new LessonResource($lesson);
+        return  response()->json(new LessonResource($lesson));
     }
 
     /**
      * @param \App\Http\Requests\LessonUpdateRequest $request
      * @param \App\Lesson $lesson
-     * @return \App\Http\Resources\LessonResource
+     * @return \Illuminate\Http\JsonResponse
      */
     public function update(LessonUpdateRequest $request, Lesson $lesson)
     {
         $lesson->update($request->validated());
 
-        return new LessonResource($lesson);
+        return  response()->json(new LessonResource($lesson));
     }
 
     /**
