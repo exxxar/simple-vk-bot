@@ -5,6 +5,7 @@ namespace App\Classes;
 
 
 use App\Knowledge;
+use App\Profile;
 use App\User;
 use Illuminate\Support\Facades\Log;
 use VK\CallbackApi\Server\VKCallbackApiServerHandler;
@@ -19,6 +20,7 @@ class ServerHandler extends VKCallbackApiServerHandler
 
     protected $chatId;
     protected $text;
+    protected $payload;
 
     protected $routes = [];
 
@@ -56,6 +58,9 @@ class ServerHandler extends VKCallbackApiServerHandler
         $this->chatId = $object["peer_id"];
         $this->text = $object["text"];
 
+        $this->payload = $object["payload"] ?? null;
+
+
         $fromId = $object["from_id"];
 
         $access_token = env("VK_SECRET_KEY");
@@ -70,11 +75,26 @@ class ServerHandler extends VKCallbackApiServerHandler
         $user = User::where("email", $fromId)->first();
 
         if (is_null($user)) {
-            User::create([
+            $user = User::create([
                 "email" => $fromId,
                 'name' => "test",
                 'password' => bcrypt("test"),
             ]);
+
+            Profile::create([
+                'first_name'=>$fromId,
+                'last_name'=>$fromId,
+                'faculty'=>1,
+                'speciality'=>1,
+                'department'=>1,
+                'group'=>1,
+                'course'=>1,
+                'vk_url'=>'test',
+                'true_first_name'=>$fromId,
+                'true_last_name'=>$fromId,
+                'user_id'=>$user->id,
+            ]);
+
         }
 
         Log::info("new message from bot=>" . $this->chatId . " " . $this->text);
@@ -89,18 +109,34 @@ class ServerHandler extends VKCallbackApiServerHandler
             $is_found = true;
         }
 
-        foreach ($this->routes as $route) {
-            Log::info($this->text . " " . $route["path"]);
-            if ($this->text === $route["path"]) {
-                $route["function"]();
-                break;
+        if (!is_null($this->payload))
+            foreach ($this->routes as $route) {
+                if (mb_strpos(mb_strtolower($this->payload), mb_strtolower($route["path"])) !== false) {
+                    $user = User::with(["profile"])->where("email",$fromId)->first();
+                    $route["function"]($user);
+                    $is_found = true;
+                    break;
+                }
             }
-        }
 
         if (!$is_found)
+            foreach ($this->routes as $route) {
+                $this->sendMessage($this->chatId, $this->text . " " . $route["path"]);
+
+                if (mb_strpos(mb_strtolower($this->text), mb_strtolower($route["path"])) !== false) {
+
+                    $route["function"]();
+                    $is_found = true;
+                    break;
+                }
+            }
+
+/*
+        if (!$is_found)
             $this->sendMessageWithKeyboard($this->chatId, "Я тебя не понимаю!(");
+
         $this->sendMessageWithKeyboard($this->chatId, "Спасибо! Ваше сообщение: $this->text ");
-        echo 'ok';
+      */  echo 'ok';
     }
 
     protected function sendMessage($chatId, $message)
@@ -109,7 +145,7 @@ class ServerHandler extends VKCallbackApiServerHandler
             $access_token = env("VK_SECRET_KEY");
             $vk = new VKApiClient();
             $vk->messages()->send($access_token, [
-                'peer_id' => $chatId,
+                'peer_id' => 2000000001,//$chatId,
                 'message' => $message,
                 'random_id' => random_int(0, 10000000000),
 
@@ -131,6 +167,16 @@ class ServerHandler extends VKCallbackApiServerHandler
                 'keyboard' => json_encode([
                     "one_time" => false,
                     "buttons" => [
+                        [
+                            [
+                                "action" => [
+                                    "type" => "text",
+                                    "payload" => "{\"button\":\"присутствую\"}",
+                                    "label" => "Я пришёль!"
+                                ],
+                                "color" => "primary"
+                            ],
+                        ],
                         [
                             [
                                 "action" => [
@@ -166,6 +212,24 @@ class ServerHandler extends VKCallbackApiServerHandler
                                     "label" => "Как дела!"
                                 ],
                                 "color" => "secondary"
+                            ],
+
+                            [
+                                "action" => [
+                                    "type" => "text",
+                                    "payload" => "{\"button\":\"расписание звонков\"}",
+                                    "label" => "Список звонков!"
+                                ],
+                                "color" => "negative"
+                            ],
+
+                            [
+                                "action" => [
+                                    "type" => "text",
+                                    "payload" => "{\"button\":\"список студентов\"}",
+                                    "label" => "Список студентов!"
+                                ],
+                                "color" => "negative"
                             ],
                         ]
                     ]

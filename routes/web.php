@@ -6,9 +6,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
 
-Route::get('/test',function (){
-event(new \Cryptolib\CryptoCore\Events\HandleMSEvent(new \Cryptolib\CryptoCore\Forms\TransferForm(1,"2","3","4","5","6")));
-});
 
 Route::view('/', 'welcome');
 
