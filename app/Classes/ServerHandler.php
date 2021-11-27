@@ -58,7 +58,11 @@ class ServerHandler extends VKCallbackApiServerHandler
         $this->chatId = $object["peer_id"];
         $this->text = $object["text"];
 
-        $this->payload = json_decode($object["payload"])->button ?? null;
+
+        if (isset($object["payload"]))
+            $this->payload = json_decode($object["payload"])->button;
+        else
+            $this->payload = null;
 
 
         $fromId = $object["from_id"];
