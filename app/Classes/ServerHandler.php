@@ -147,7 +147,7 @@ class ServerHandler extends VKCallbackApiServerHandler
             $access_token = env("VK_SECRET_KEY");
             $vk = new VKApiClient();
             $vk->messages()->send($access_token, [
-                'peer_id' => 2000000001,//$chatId,
+                'peer_id' => $chatId,
                 'message' => $message,
                 'random_id' => random_int(0, 10000000000),
 
