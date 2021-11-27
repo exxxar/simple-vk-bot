@@ -58,7 +58,7 @@ class ServerHandler extends VKCallbackApiServerHandler
         $this->chatId = $object["peer_id"];
         $this->text = $object["text"];
 
-        $this->payload = $object["payload"] ?? null;
+        $this->payload = json_decode($object["payload"])->button ?? null;
 
 
         $fromId = $object["from_id"];
@@ -98,8 +98,11 @@ class ServerHandler extends VKCallbackApiServerHandler
         }
 
         $tmp = mb_strtolower($this->text);
+        $tmp_2 = mb_strtolower($this->payload);
         // $answers = Knowledge::where("keyword","=","$tmp")->get();
-        $answers = Knowledge::where("keyword", "like", "%$tmp%")->get();
+        $answers = Knowledge::where("keyword", "like", "%$tmp%")
+            ->orWhere("keyword", "like", "%$tmp%")
+            ->get();
         $is_found = false;
         if (count($answers) > 0) {
             $tmp_answer = $answers->random(1);
