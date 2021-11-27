@@ -97,8 +97,6 @@ class ServerHandler extends VKCallbackApiServerHandler
 
         }
 
-        Log::info("new message from bot=>" . $this->chatId . " " . $this->text);
-
         $tmp = mb_strtolower($this->text);
         // $answers = Knowledge::where("keyword","=","$tmp")->get();
         $answers = Knowledge::where("keyword", "like", "%$tmp%")->get();
@@ -121,8 +119,6 @@ class ServerHandler extends VKCallbackApiServerHandler
 
         if (!$is_found)
             foreach ($this->routes as $route) {
-                $this->sendMessage($this->chatId, $this->text . " " . $route["path"]);
-
                 if (mb_strpos(mb_strtolower($this->text), mb_strtolower($route["path"])) !== false) {
 
                     $route["function"]();
