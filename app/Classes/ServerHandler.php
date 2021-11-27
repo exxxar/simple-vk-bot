@@ -82,27 +82,30 @@ class ServerHandler extends VKCallbackApiServerHandler
             ]);
 
             Profile::create([
-                'first_name'=>$fromId,
-                'last_name'=>$fromId,
-                'faculty'=>1,
-                'speciality'=>1,
-                'department'=>1,
-                'group'=>1,
-                'course'=>1,
-                'vk_url'=>'test',
-                'true_first_name'=>$fromId,
-                'true_last_name'=>$fromId,
-                'user_id'=>$user->id,
+                'first_name' => $fromId,
+                'last_name' => $fromId,
+                'faculty' => 1,
+                'speciality' => 1,
+                'department' => 1,
+                'group' => 1,
+                'course' => 1,
+                'vk_url' => 'test',
+                'true_first_name' => $fromId,
+                'true_last_name' => $fromId,
+                'user_id' => $user->id,
             ]);
 
         }
 
         $tmp = mb_strtolower($this->text);
-        $tmp_2 = mb_strtolower($this->payload);
-        // $answers = Knowledge::where("keyword","=","$tmp")->get();
-        $answers = Knowledge::where("keyword", "like", "%$tmp%")
-            ->orWhere("keyword", "like", "%$tmp%")
-            ->get();
+        $answers = Knowledge::where("keyword", "like", "%$tmp%");
+        if (!is_null($this->payload)) {
+            $tmp_2 = mb_strtolower($this->payload);
+            $answers = $answers
+                ->orWhere("keyword", "like", "%$tmp_2%");
+        }
+
+        $answers = $answers->get();
         $is_found = false;
         if (count($answers) > 0) {
             $tmp_answer = $answers->random(1);
@@ -113,7 +116,7 @@ class ServerHandler extends VKCallbackApiServerHandler
         if (!is_null($this->payload))
             foreach ($this->routes as $route) {
                 if (mb_strpos(mb_strtolower($this->payload), mb_strtolower($route["path"])) !== false) {
-                    $user = User::with(["profile"])->where("email",$fromId)->first();
+                    $user = User::with(["profile"])->where("email", $fromId)->first();
                     $route["function"]($user);
                     $is_found = true;
                     break;
