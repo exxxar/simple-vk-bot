@@ -127,12 +127,12 @@ class ServerHandler extends VKCallbackApiServerHandler
                 }
             }
 
-/*
+
         if (!$is_found)
             $this->sendMessageWithKeyboard($this->chatId, "Я тебя не понимаю!(");
 
         $this->sendMessageWithKeyboard($this->chatId, "Спасибо! Ваше сообщение: $this->text ");
-      */  echo 'ok';
+        echo 'ok';
     }
 
     protected function sendMessage($chatId, $message)
