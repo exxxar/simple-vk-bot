@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="915a31cb-f5d8-48f1-a108-a4a407f3a49c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Classes/ServerHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Classes/ServerHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/bot.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/bot.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +17,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -224,7 +234,9 @@
       <workItem from="1637573108802" duration="32000" />
       <workItem from="1637747072482" duration="37000" />
       <workItem from="1637747131178" duration="1451000" />
-      <workItem from="1637993685626" duration="9087000" />
+      <workItem from="1637993685626" duration="9590000" />
+      <workItem from="1638185927152" duration="879000" />
+      <workItem from="1638598705758" duration="6483000" />
     </task>
     <servers />
   </component>

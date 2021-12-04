@@ -58,6 +58,12 @@ class ServerHandler extends VKCallbackApiServerHandler
         $this->chatId = $object["peer_id"];
         $this->text = $object["text"];
 
+        /*preg_match_all("/([0-9]+) ([a-z]+)/",
+            $this->text,
+            $out, PREG_PATTERN_ORDER);
+
+        Log::info(print_r($out, true));*/
+
 
         if (isset($object["payload"]))
             $this->payload = json_decode($object["payload"])->button;
@@ -76,7 +82,7 @@ class ServerHandler extends VKCallbackApiServerHandler
         ]);
 
 
-        $user = User::where("email", $fromId)->first();
+        $user = User::with(["profile"])->where("email", $fromId)->first();
 
         if (is_null($user)) {
             $user = User::create([
@@ -99,6 +105,23 @@ class ServerHandler extends VKCallbackApiServerHandler
                 'user_id' => $user->id,
             ]);
 
+        }
+        else {
+            if (is_null($user->profile)){
+                Profile::create([
+                    'first_name' => $fromId,
+                    'last_name' => $fromId,
+                    'faculty' => 1,
+                    'speciality' => 1,
+                    'department' => 1,
+                    'group' => 1,
+                    'course' => 1,
+                    'vk_url' => 'test',
+                    'true_first_name' => $fromId,
+                    'true_last_name' => $fromId,
+                    'user_id' => $user->id,
+                ]);
+            }
         }
 
         $tmp = mb_strtolower($this->text);
@@ -129,19 +152,39 @@ class ServerHandler extends VKCallbackApiServerHandler
 
         if (!$is_found)
             foreach ($this->routes as $route) {
-                if (mb_strpos(mb_strtolower($this->text), mb_strtolower($route["path"])) !== false) {
 
-                    $route["function"]();
+                mb_internal_encoding('utf8');
+
+
+                preg_match_all("/" . $route["path"] . "/",
+                    $this->text,
+                    $out, PREG_PATTERN_ORDER);
+
+
+                //if (mb_strpos(mb_strtolower($this->text), mb_strtolower($route["path"])) !== false) {
+
+                if (count($out[0]) > 0) {
+
+
+                    $message = "";
+                    if (isset($out[0][0]))
+                        $message = $out[0][0];
+                    if (isset($out[1][0]))
+                        $message = $out[1][0];
+
+                    $user = User::with(["profile"])->where("email", $fromId)->first();
+
+                    $route["function"]($user, $message);
                     $is_found = true;
-                    break;
+                    //break;
                 }
             }
 
 
-      /*  if (!$is_found)
-            $this->sendMessageWithKeyboard($this->chatId, "Я тебя не понимаю!(");
+        /*  if (!$is_found)
+              $this->sendMessageWithKeyboard($this->chatId, "Я тебя не понимаю!(");
 
-        $this->sendMessageWithKeyboard($this->chatId, "Спасибо! Ваше сообщение: $this->text ");*/
+          $this->sendMessageWithKeyboard($this->chatId, "Спасибо! Ваше сообщение: $this->text ");*/
         echo 'ok';
     }
 
